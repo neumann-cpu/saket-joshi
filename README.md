@@ -25,7 +25,7 @@ Site URL: https://neumann-cpu.github.io/saket-joshi/
 ## Structure
 
 ```
-index.html          Home (about, work summary, pubs, experience, writing, contact)
+index.html          Home (name, about, interests, quiet links)
 work/index.html     Selected work deep dives
 writing/            Writing index + posts
 css/styles.css
