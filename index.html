@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Saket Joshi</title>
+  <meta name="description" content="Machine learning engineer — large-scale recommenders, evaluation, and systems that ship." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="Saket Joshi" />
+  <meta property="og:description" content="Machine learning engineer — large-scale recommenders, evaluation, and systems that ship." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <nav class="top-links" aria-label="Primary">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="work/index.html">Work</a>
+        <a href="writing/index.html">Writing</a>
+      </nav>
+      <button type="button" class="menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobile-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-panel" id="mobile-panel">
+    <p class="label">Navigation</p>
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="work/index.html">Work</a>
+    <a href="writing/index.html">Writing</a>
+    <p class="label">Find me on</p>
+    <a href="https://github.com/saketrule" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/saket-dattatray-joshi" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:saketrule@gmail.com">Email</a>
+    <a href="https://www.semanticscholar.org/search?q=%22Saket%20Dattatray%20Joshi%22" target="_blank" rel="noopener">Scholar</a>
+    <a href="https://openreview.net/" target="_blank" rel="noopener">OpenReview</a>
+  </div>
+
+  <aside class="side-nav" aria-label="Sidebar">
+    <div class="group">
+      <p class="label">Navigation</p>
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="work/index.html">Work</a>
+      <a href="writing/index.html">Writing</a>
+    </div>
+    <div class="group">
+      <p class="label">Find me on</p>
+      <a href="https://github.com/saketrule" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/saket-dattatray-joshi" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:saketrule@gmail.com">Email</a>
+      <a href="https://www.semanticscholar.org/search?q=%22Saket%20Dattatray%20Joshi%22" target="_blank" rel="noopener">Scholar</a>
+      <a href="https://openreview.net/" target="_blank" rel="noopener">OpenReview</a>
+    </div>
+  </aside>
+
+  <main class="shell">
+    <article class="">
+      <h1>Saket Joshi</h1>
+      <p class="lede">Curious about ranking systems that stay simple enough to ship.</p>
+
+      <p><strong>Some things about me</strong></p>
+      <ul class="plain">
+        <li>I’m a machine learning engineer at Meta, working on large-scale systems.</li>
+        <li>Before that I was a Member of Technical Staff at X / xAI, where I shipped recommenders used across the product — including a Transformer model rolled out broadly on For You, and work on video recommendations and how we evaluate embeddings.</li>
+        <li>I studied data science at Harvard (and cross-registered at MIT Sloan), after computer science at IIT Tirupati.</li>
+        <li>I like turning messy, high-scale ranking problems into systems that are simple enough to train, measure, and ship.</li>
+        <li>I teach and mentor when I can — I was a teaching fellow for reinforcement learning at Harvard.</li>
+      </ul>
+
+      <p><strong>Some things I’m interested in</strong></p>
+      <ul class="plain">
+        <li>Recommender systems and representation learning at industrial scale.</li>
+        <li>Evaluation — how you know an embedding or a model is actually better, not just different.</li>
+        <li>Markets and automated decision systems (side research; not the day-job field).</li>
+        <li>Clear writing about hard technical systems.</li>
+        <li>Building things with tight constraints — the interesting part is usually the constraint.</li>
+      </ul>
+
+      <p>See <a href="work/index.html">selected work</a>, <a href="writing/index.html">writing</a>, and notes below.</p>
+
+      <h2 id="work">Selected work</h2>
+      <div class="cards">
+        <section class="card">
+          <p class="meta">X · 2023–</p>
+          <h3>Omni recommendation model</h3>
+          <p>Legacy feature-engineering pipelines limited quality and maintainability on major surfaces. I designed and shipped a zero-heuristic Transformer Omni model in JAX — architecture ablations, scaling laws, and custom sharding for large embedding tables.</p>
+          <p class="outcome">Rolled out to 100% of users across multiple surfaces including For You; ~4% lift in user active seconds and ~10% in core engagement.</p>
+        </section>
+        <section class="card">
+          <p class="meta">X · immersive video</p>
+          <h3>Immersive video recommendations</h3>
+          <p>Media-tab watch time was under-optimized under biased objectives. I owned the immersive video recommendation engine and shipped a MaskNet model with a bias-corrected objective aimed at maximizing watch time.</p>
+          <p class="outcome">&gt;50% gain in watch time within the Media tab.</p>
+        </section>
+        <section class="card">
+          <p class="meta">X · evaluation</p>
+          <h3>Embedding evaluation &amp; Semantic-ID</h3>
+          <p>Hard to systematically judge embedding and content-understanding quality for ranking. I designed a hierarchical topic-tree evaluation, benchmarked embedding models and prompting strategies, and trained a Semantic-ID model on multimodal embeddings.</p>
+          <p class="outcome">~45% error reduction on the eval versus prior approaches.</p>
+        </section>
+      </div>
+      <p><a href="work/index.html">More detail on selected work →</a></p>
+
+      <h2 id="publications">Publications</h2>
+      <div class="list-block">
+        <div class="list-item">
+          <p class="role">RapidRelease — A Dataset of Projects and Issues on Github with Rapid Releases</p>
+          <p class="detail">Joshi, S. D., &amp; Chimalakonda, S. MSR 2019 (IEEE / ACM).</p>
+          <p class="detail">
+            <a href="https://www.semanticscholar.org/paper/RapidRelease-A-Dataset-of-Projects-and-Issues-on-Joshi-Chimalakonda/b1bffb9d54687235b141372b4b94165a48e83bac" target="_blank" rel="noopener">Semantic Scholar</a>
+            ·
+            <a href="https://dl.acm.org/doi/10.1109/MSR.2019.00088" target="_blank" rel="noopener">ACM</a>
+            ·
+            <a href="https://doi.org/10.1109/MSR.2019.00088" target="_blank" rel="noopener">DOI</a>
+          </p>
+        </div>
+      </div>
+
+      <h2 id="experience">Experience</h2>
+      <div class="list-block">
+        <div class="list-item">
+          <p class="when">Current</p>
+          <p class="role">Meta — Machine Learning Engineer</p>
+          <p class="detail">Large-scale machine learning systems.</p>
+        </div>
+        <div class="list-item">
+          <p class="when">Previously</p>
+          <p class="role">X / xAI — Member of Technical Staff</p>
+          <p class="detail">Omni recommendations, immersive video, embedding evaluation / Semantic-ID, online training.</p>
+        </div>
+        <div class="list-item">
+          <p class="when">2019 – 2022</p>
+          <p class="role">Fourkites — Data Scientist</p>
+        </div>
+        <div class="list-item">
+          <p class="when">2022 – 2023</p>
+          <p class="role">Harvard University — M.S. Data Science</p>
+          <p class="detail">Cross-registered at MIT Sloan.</p>
+        </div>
+        <div class="list-item">
+          <p class="when">2015 – 2019</p>
+          <p class="role">IIT Tirupati — B.Tech, Computer Science &amp; Engineering</p>
+        </div>
+      </div>
+
+      <h2 id="writing">Writing</h2>
+      <ul class="write-list">
+        <li>
+          <p class="tag">Side research</p>
+          <a href="writing/ml-for-derivatives.html">Notes on ML for derivatives trading</a>
+          <p class="blurb">Methods and lessons from side research on multi-leg strategies — not the day job.</p>
+        </li>
+        <li>
+          <a href="writing/embedding-evaluation.html">How do you know an embedding is better?</a>
+          <p class="blurb">Hierarchical evaluation, Semantic-IDs, and why offline metrics often lie.</p>
+        </li>
+        <li>
+          <a href="writing/industrial-recsys.html">Industrial recommenders vs. academic metrics</a>
+          <p class="blurb">A short note on what ships and what papers optimize.</p>
+        </li>
+      </ul>
+
+      <h2 id="contact">Contact</h2>
+      <div class="contact-row">
+        <a href="mailto:saketrule@gmail.com">saketrule@gmail.com</a>
+        <a href="https://github.com/saketrule" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/saket-dattatray-joshi" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.semanticscholar.org/search?q=%22Saket%20Dattatray%20Joshi%22" target="_blank" rel="noopener">Scholar</a>
+        <a href="https://openreview.net/" target="_blank" rel="noopener">OpenReview</a>
+      </div>
+
+      <p class="footer-note">Industrial deployment details at X are limited by company policy.</p>
+
+    </article>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

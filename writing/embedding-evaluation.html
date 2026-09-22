@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How do you know an embedding is better? — Saket Joshi</title>
+  <meta name="description" content="Hierarchical evaluation, Semantic-IDs, and judging embedding quality honestly." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="How do you know an embedding is better? — Saket Joshi" />
+  <meta property="og:description" content="Hierarchical evaluation, Semantic-IDs, and judging embedding quality honestly." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <nav class="top-links" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../work/index.html">Work</a>
+        <a href="../writing/index.html" aria-current="page">Writing</a>
+      </nav>
+      <button type="button" class="menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobile-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-panel" id="mobile-panel">
+    <p class="label">Navigation</p>
+    <a href="../index.html">Home</a>
+    <a href="../work/index.html">Work</a>
+    <a href="../writing/index.html" aria-current="page">Writing</a>
+    <p class="label">Find me on</p>
+    <a href="https://github.com/saketrule" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/saket-dattatray-joshi" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:saketrule@gmail.com">Email</a>
+    <a href="https://www.semanticscholar.org/search?q=%22Saket%20Dattatray%20Joshi%22" target="_blank" rel="noopener">Scholar</a>
+    <a href="https://openreview.net/" target="_blank" rel="noopener">OpenReview</a>
+  </div>
+
+  <aside class="side-nav" aria-label="Sidebar">
+    <div class="group">
+      <p class="label">Navigation</p>
+      <a href="../index.html">Home</a>
+      <a href="../work/index.html">Work</a>
+      <a href="../writing/index.html" aria-current="page">Writing</a>
+    </div>
+    <div class="group">
+      <p class="label">Find me on</p>
+      <a href="https://github.com/saketrule" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/saket-dattatray-joshi" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:saketrule@gmail.com">Email</a>
+      <a href="https://www.semanticscholar.org/search?q=%22Saket%20Dattatray%20Joshi%22" target="_blank" rel="noopener">Scholar</a>
+      <a href="https://openreview.net/" target="_blank" rel="noopener">OpenReview</a>
+    </div>
+  </aside>
+
+  <main class="shell">
+    <article class="article">
+      <a class="back" href="index.html">← Writing</a>
+      <h1>How do you know an embedding is better?</h1>
+      <p class="meta">Evaluation · representation learning</p>
+
+      <p>“Different” is easy. “Better” is not. Embedding and content-understanding models change constantly — new backbones, new prompts, new multimodal fusion — and offline scores often move for reasons that have nothing to do with ranking quality.</p>
+
+      <h2>The failure mode</h2>
+      <p>If you only look at retrieval recall against a fixed query set, you can reward models that collapse topics, overfit to popular items, or look strong on coarse categories while failing on the fine distinctions that matter for ranking. Pairwise preference labels help, but they inherit the biases of whoever labeled them.</p>
+
+      <h2>Hierarchical evaluation</h2>
+      <p>One approach that has worked well in practice is a topic tree: evaluate embeddings at multiple levels of semantic granularity. Coarse nodes catch catastrophic failures; fine nodes catch the distinctions that actually move ranking. Error rates that look fine at the root often look ugly two levels down.</p>
+
+      <p>That structure also makes ablations legible. When you swap a backbone or a prompting strategy, you can see <em>where</em> quality moved — not just that a single scalar changed.</p>
+
+      <h2>Semantic-IDs</h2>
+      <p>Discrete semantic identifiers on top of multimodal embeddings are useful when you need a stable, interpretable handle on content for retrieval and ranking. The modeling question is interesting; the evaluation question is more interesting: does the ID space preserve the hierarchy you care about, and does it stay stable as the underlying encoder evolves?</p>
+
+      <h2>A practical bar</h2>
+      <ul>
+        <li>Prefer evaluations that fail loudly on known hard slices.</li>
+        <li>Report reductions in error, not only absolute scores — baselines matter.</li>
+        <li>Keep a path from offline win → online metric, or admit when you do not have one.</li>
+      </ul>
+
+      <p>Related work on this site: <a href="../work/index.html#embeddings">Embedding evaluation &amp; Semantic-ID</a>.</p>
+
+    </article>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

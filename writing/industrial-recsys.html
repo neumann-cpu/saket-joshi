@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Industrial recommenders vs. academic metrics — Saket Joshi</title>
+  <meta name="description" content="What papers optimize versus what production ranking systems actually ship." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="Industrial recommenders vs. academic metrics — Saket Joshi" />
+  <meta property="og:description" content="What papers optimize versus what production ranking systems actually ship." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <nav class="top-links" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../work/index.html">Work</a>
+        <a href="../writing/index.html" aria-current="page">Writing</a>
+      </nav>
+      <button type="button" class="menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobile-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-panel" id="mobile-panel">
+    <p class="label">Navigation</p>
+    <a href="../index.html">Home</a>
+    <a href="../work/index.html">Work</a>
+    <a href="../writing/index.html" aria-current="page">Writing</a>
+    <p class="label">Find me on</p>
+    <a href="https://github.com/saketrule" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/saket-dattatray-joshi" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:saketrule@gmail.com">Email</a>
+    <a href="https://www.semanticscholar.org/search?q=%22Saket%20Dattatray%20Joshi%22" target="_blank" rel="noopener">Scholar</a>
+    <a href="https://openreview.net/" target="_blank" rel="noopener">OpenReview</a>
+  </div>
+
+  <aside class="side-nav" aria-label="Sidebar">
+    <div class="group">
+      <p class="label">Navigation</p>
+      <a href="../index.html">Home</a>
+      <a href="../work/index.html">Work</a>
+      <a href="../writing/index.html" aria-current="page">Writing</a>
+    </div>
+    <div class="group">
+      <p class="label">Find me on</p>
+      <a href="https://github.com/saketrule" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/saket-dattatray-joshi" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:saketrule@gmail.com">Email</a>
+      <a href="https://www.semanticscholar.org/search?q=%22Saket%20Dattatray%20Joshi%22" target="_blank" rel="noopener">Scholar</a>
+      <a href="https://openreview.net/" target="_blank" rel="noopener">OpenReview</a>
+    </div>
+  </aside>
+
+  <main class="shell">
+    <article class="article">
+      <a class="back" href="index.html">← Writing</a>
+      <h1>Industrial recommenders vs. academic metrics</h1>
+      <p class="meta">Recommenders · systems</p>
+
+      <p>Academic recommender papers and industrial ranking systems often share vocabulary and diverge on objectives. That gap is not a moral failing of either side — it is a difference in constraints.</p>
+
+      <h2>What papers optimize</h2>
+      <p>Offline ranking metrics on fixed datasets. Ablations that isolate an architecture idea. Reproducibility against a public split. These are valuable. They are also incomplete for production.</p>
+
+      <h2>What ships</h2>
+      <ul>
+        <li>Latency budgets that kill otherwise-good models.</li>
+        <li>Feedback loops: the model changes the data the next model trains on.</li>
+        <li>Multi-objective reality — engagement, integrity, diversity, creator health — that refuses to collapse to one NDCG number.</li>
+        <li>Training and serving cost that has to stay boring enough to run every day.</li>
+      </ul>
+
+      <h2>A useful translation</h2>
+      <p>Treat academic metrics as probes, not scoreboards. A new architecture earns attention when it improves a probe <em>and</em> survives the constraints: can you shard it, train it online, measure it without fooling yourself, and roll it out without breaking the product?</p>
+
+      <p>The systems I care about most are the ones that stay simple enough to train, measure, and ship — even when the underlying ranking problem is messy.</p>
+
+    </article>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

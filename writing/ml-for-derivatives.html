@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Notes on ML for derivatives trading — Saket Joshi</title>
+  <meta name="description" content="Side research on multi-leg derivatives strategies and evaluation under real constraints." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="Notes on ML for derivatives trading — Saket Joshi" />
+  <meta property="og:description" content="Side research on multi-leg derivatives strategies and evaluation under real constraints." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <nav class="top-links" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../work/index.html">Work</a>
+        <a href="../writing/index.html" aria-current="page">Writing</a>
+      </nav>
+      <button type="button" class="menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobile-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-panel" id="mobile-panel">
+    <p class="label">Navigation</p>
+    <a href="../index.html">Home</a>
+    <a href="../work/index.html">Work</a>
+    <a href="../writing/index.html" aria-current="page">Writing</a>
+    <p class="label">Find me on</p>
+    <a href="https://github.com/saketrule" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/saket-dattatray-joshi" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:saketrule@gmail.com">Email</a>
+    <a href="https://www.semanticscholar.org/search?q=%22Saket%20Dattatray%20Joshi%22" target="_blank" rel="noopener">Scholar</a>
+    <a href="https://openreview.net/" target="_blank" rel="noopener">OpenReview</a>
+  </div>
+
+  <aside class="side-nav" aria-label="Sidebar">
+    <div class="group">
+      <p class="label">Navigation</p>
+      <a href="../index.html">Home</a>
+      <a href="../work/index.html">Work</a>
+      <a href="../writing/index.html" aria-current="page">Writing</a>
+    </div>
+    <div class="group">
+      <p class="label">Find me on</p>
+      <a href="https://github.com/saketrule" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/saket-dattatray-joshi" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:saketrule@gmail.com">Email</a>
+      <a href="https://www.semanticscholar.org/search?q=%22Saket%20Dattatray%20Joshi%22" target="_blank" rel="noopener">Scholar</a>
+      <a href="https://openreview.net/" target="_blank" rel="noopener">OpenReview</a>
+    </div>
+  </aside>
+
+  <main class="shell">
+    <article class="article">
+      <a class="back" href="index.html">← Writing</a>
+      <h1>Notes on ML for derivatives trading</h1>
+      <p class="meta">Side research · not the day-job field</p>
+
+      <p>This is a side project — markets and automated decision systems, not recommenders. I keep it here because the constraints are interesting, and because constraints are usually where the real design work is.</p>
+
+      <h2>The setup</h2>
+      <p>Indian equity derivatives are liquid, tightly regulated, and full of multi-leg structures (spreads, iron condors, calendar rolls) whose payoff depends on the joint behavior of price, volatility, and time. The interesting prediction target is rarely “will the underlying go up.” It is closer to: given a book of legs, when does the risk/reward of holding beat the risk/reward of adjusting?</p>
+
+      <h2>What I tried</h2>
+      <ul>
+        <li>Feature sets built from option chain shape (skew, term structure, OI concentration) rather than raw prices alone.</li>
+        <li>Models that score candidate adjustments instead of predicting a single direction — closer to a policy over discrete actions than a regression on returns.</li>
+        <li>Strict walk-forward evaluation with transaction costs, slippage assumptions, and session boundaries treated as first-class.</li>
+      </ul>
+
+      <h2>What broke</h2>
+      <p>Most offline lifts disappeared once costs and fill uncertainty were honest. Regime shifts (event weeks, sudden vol spikes) punished anything that overfit quiet months. Labeling “good adjustments” retrospectively is circular unless you define the counterfactual carefully.</p>
+
+      <h2>What I took away</h2>
+      <p>The useful work was evaluation design and constraint modeling — position limits, margin, and timing — more than model architecture. That maps oddly well to industrial ranking: the hard part is often knowing whether a change is actually better under the real objective, not fitting a prettier offline curve.</p>
+
+      <p>I am not offering trading advice. This note is a research diary, not a system you should run with real money.</p>
+
+    </article>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
