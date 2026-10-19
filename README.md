@@ -27,7 +27,7 @@ Site URL: https://neumann-cpu.github.io/saket-joshi/
 ```
 index.html          Home (name, about, interests, quiet links)
 work/index.html     Selected work deep dives
-notes/index.html    Notes: things watched/read, newest first. To add one, copy a commented ENTRY block in notes/index.html to the top of .cards.
+notes/index.html    Notes: things watched/read, newest first. Unlinked from the nav (reachable by URL only). To add one, copy a commented ENTRY block in notes/index.html to the top of .cards.
 writing/            Writing index + posts
 css/styles.css
 js/main.js
